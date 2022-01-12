@@ -1,0 +1,8 @@
+name: pybryt-env
+channels:
+  - default
+dependencies:
+  - pip
+  - pip:
+    - pybryt
+    - validators

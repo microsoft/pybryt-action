@@ -1,0 +1,49 @@
+name: 'Assess with PyBryt'
+description: 'Run automated assessment of a repository with PyBryt'
+inputs:
+  submission-path:
+    description: 'The path to the submission'
+    required: true
+  references:
+    description: 'Paths or URLs of reference implementations'
+    required: true
+  additional-files:
+    description: 'Paths to additional files to trace'
+    required: false
+outputs:
+  report-path:
+    description: Path to a text file containing PyBryt's report
+    value: ${{ steps.run-pybryt-script.outputs.report-path }}
+  results-path:
+    description: Path to a file containing a pickled list of results objects
+    value: ${{ steps.run-pybryt-script.outputs.results-path }}
+  student-implementation-path:
+    description: Path to a file containing the pickled student implementation
+    value: ${{ steps.run-pybryt-script.outputs.student-implementation-path }}
+runs:
+  using: 'composite'
+  steps:
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+    
+    - run: |
+        if [ ! -d "$CONDA/envs/pybryt-env" ];
+          then $CONDA/bin/conda env create -f ${{ github.action_path }}/environment.yml;
+        fi
+      shell: bash
+
+    - run: |
+        if [ -f "requirements.txt" ];
+          then $CONDA/bin/conda run -n pybryt-env pip install -r requirements.txt;
+        fi
+      shell: bash
+    
+    - id: run-pybryt-script
+      run: |
+        $CONDA/bin/conda run -n pybryt-env python3 ${{ github.action_path }}/run_pybryt.py \
+          --additional-files "${{ inputs.additional-files }}" \
+          --references "${{ inputs.references }}" \
+          --subm "${{ inputs.submission-path }}"
+      shell: bash
