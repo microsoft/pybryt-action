@@ -2,7 +2,15 @@
 
 An action for running [PyBryt](https://microsoft.github.io/pybryt) as an automated assessment tool on GitHub repositories.
 
-## Usage
+### GitHub Actions 
+If your not familar with GitHub Actions or Workflows we advise you to complete this short awarness module [GitHub Actions, Microsoft Learn Module](https://docs.microsoft.com/learn/modules/introduction-to-github-actions) By the end of this module, you'll be able to:
+
+- Explain GitHub Actions and workflows
+- Create and work with GitHub Actions and Workflows
+- Describe Events, Jobs and Runners
+- Examine output and release management for actions
+
+## Usage of PyBryt GitHub Action
 
 The PyBryt action accepts the following inputs:
 
@@ -97,6 +105,17 @@ with open(os.path.join(RESULTS_DIR, "results.pkl"), "rb") as f:
 
 student_impl = pybryt.StudentImplementation.load(os.path.join(RESULTS_DIR, "student-implementation.pkl"))
 ```
+## Enhancing your Github Actions 
+
+If you are interesting, in learning how GitHub Actions enables you to automate your software development cycle and deploy applications we recommend the following short course [Automate your workflow with GitHub Actions](https://docs.microsoft.com/learn/paths/automate-workflow-github-actions/)
+
+In this learning path, you'll:
+
+- Plan automation of your software development life cycle with GitHub Actions workflows.
+- Use GitHub Actions to automatically build your application.
+- Deploy to Microsoft Azure with GitHub Actions.
+- Use GitHub Script to interact with the GitHub API.
+- Publish automatically and securely your code libraries or Docker images with GitHub Packages.
 
 ## Contributing
 
