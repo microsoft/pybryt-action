@@ -2,14 +2,6 @@
 
 An action for running [PyBryt](https://microsoft.github.io/pybryt) as an automated assessment tool on GitHub repositories.
 
-### GitHub Actions 
-If your not familar with GitHub Actions or Workflows we advise you to complete this short awarness module [GitHub Actions, Microsoft Learn Module](https://docs.microsoft.com/learn/modules/introduction-to-github-actions) By the end of this module, you'll be able to:
-
-- Explain GitHub Actions and workflows
-- Create and work with GitHub Actions and Workflows
-- Describe Events, Jobs and Runners
-- Examine output and release management for actions
-
 ## Usage of PyBryt GitHub Action
 
 The PyBryt action accepts the following inputs:
@@ -36,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run PyBryt
-        uses: microsoft/pybryt-action@main # TODO: update the version
+        uses: microsoft/pybryt-action@v0.1
         with:
           submission-path: demo/fibonacci/submissions/subm01.ipynb
           references: |
@@ -49,7 +41,7 @@ If you were using a notebook as a testing harness, you may want something like:
 
 ```yaml
 - name: Run PyBryt
-  uses: microsoft/pybryt-action@main # TODO: update the version
+  uses: microsoft/pybryt-action@v0.1
   with:
     submission-path: harness.ipynb
     additional-files: |
@@ -75,7 +67,7 @@ For example, you may want to commit these as files in the student's repo:
 ```yaml
 - name: Run PyBryt
   id: pybryt
-  uses: microsoft/pybryt-action@main # TODO: update the version
+  uses: microsoft/pybryt-action@v0.1
   with:
     # etc.
 - name: Save, commit, and push results
@@ -106,9 +98,19 @@ with open(os.path.join(RESULTS_DIR, "results.pkl"), "rb") as f:
 
 student_impl = pybryt.StudentImplementation.load(os.path.join(RESULTS_DIR, "student-implementation.pkl"))
 ```
-## Enhancing your Github Actions 
 
-If you are interesting, in learning how GitHub Actions enables you to automate your software development cycle and deploy applications we recommend the following short course [Automate your workflow with GitHub Actions](https://docs.microsoft.com/learn/paths/automate-workflow-github-actions/)
+You can learn more about how to use this action in [PyBryt's Documentation](https://microsoft.github.io/pybryt/html/github_action.html).
+
+## About GitHub Actions 
+
+If you're not familiar with GitHub Actions or Workflows we advise you to complete this short awareness module: [GitHub Actions, Microsoft Learn Module](https://docs.microsoft.com/learn/modules/introduction-to-github-actions). By the end of this module, you'll be able to:
+
+- Explain GitHub Actions and workflows
+- Create and work with GitHub Actions and Workflows
+- Describe Events, Jobs and Runners
+- Examine output and release management for actions
+
+If you are interesting, in learning how GitHub Actions enables you to automate your software development cycle and deploy applications we recommend the following short course: [Automate your workflow with GitHub Actions](https://docs.microsoft.com/learn/paths/automate-workflow-github-actions/).
 
 In this learning path, you'll:
 
