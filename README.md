@@ -19,6 +19,7 @@ The PyBryt action accepts the following inputs:
 | `submission-path` | yes | The path to the submission file to run |
 | `references` | yes | A newline-delimited list of paths or URLs to reference implementations |
 | `additional-files` | no | A newline-delimited list of file paths to also trace when executing the submission |
+| `timeout` | no | A timeout for executing the notebook in seconds |
 
 For example, to run PyBryt on the [Fibonacci demo in the main repo](https://github.com/microsoft/pybryt/tree/main/demo/fibonacci), you could use
 
