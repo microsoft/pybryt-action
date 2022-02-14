@@ -10,6 +10,9 @@ inputs:
   additional-files:
     description: 'Paths to additional files to trace'
     required: false
+  timeout:
+    description: 'Notebook execution timeout in seconds'
+    required: false
 outputs:
   report-path:
     description: Path to a text file containing PyBryt's report
@@ -45,5 +48,6 @@ runs:
         $CONDA/bin/conda run -n pybryt-env python3 ${{ github.action_path }}/run_pybryt.py \
           --additional-files "${{ inputs.additional-files }}" \
           --references "${{ inputs.references }}" \
-          --subm "${{ inputs.submission-path }}"
+          --subm "${{ inputs.submission-path }}" \
+          --timeout "${{ inputs.timeout }}"
       shell: bash
