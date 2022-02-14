@@ -1,5 +1,8 @@
 name: 'Assess with PyBryt'
 description: 'Run automated assessment of a repository with PyBryt'
+branding:
+  icon: bar-chart
+  color: blue
 inputs:
   submission-path:
     description: 'The path to the submission'
