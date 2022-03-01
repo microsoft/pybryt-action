@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run PyBryt
-        uses: microsoft/pybryt-action@v0.1
+        uses: microsoft/pybryt-action@v0.1.1
         with:
           submission-path: demo/fibonacci/submissions/subm01.ipynb
           references: |
@@ -41,7 +41,7 @@ If you were using a notebook as a testing harness, you may want something like:
 
 ```yaml
 - name: Run PyBryt
-  uses: microsoft/pybryt-action@v0.1
+  uses: microsoft/pybryt-action@v0.1.1
   with:
     submission-path: harness.ipynb
     additional-files: |
@@ -67,7 +67,7 @@ For example, you may want to commit these as files in the student's repo:
 ```yaml
 - name: Run PyBryt
   id: pybryt
-  uses: microsoft/pybryt-action@v0.1
+  uses: microsoft/pybryt-action@v0.1.1
   with:
     # etc.
 - name: Save, commit, and push results
