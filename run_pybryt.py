@@ -11,10 +11,10 @@ import validators
 
 
 PARSER = argparse.ArgumentParser()
-PARSER.add_argument("--additional-files")
+PARSER.add_argument("--additional-files", nargs="?", default=None)
 PARSER.add_argument("--references")
 PARSER.add_argument("--subm")
-PARSER.add_argument("--timeout")
+PARSER.add_argument("--timeout", nargs="?", default=None)
 
 
 is_none = lambda s: s.lower() == "none"
